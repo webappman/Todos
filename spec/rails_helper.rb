@@ -33,7 +33,7 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-RSpec.configuration do |config|
+RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -41,7 +41,7 @@ RSpec.configuration do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = true
-  
+
   config.include FactoryGirl::Syntax::Methods
 
   config.before(:suite) do
@@ -68,9 +68,8 @@ RSpec.configuration do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-  
-  config.include RequestSpecHelper, type: :request
 
+  config.include RequestSpecHelper, type: :request
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
